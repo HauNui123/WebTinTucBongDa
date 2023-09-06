@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Thêm Tin Mới</h2>
+<form action="/Admin/LichDauAdmin/Create" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="NgayTao">Ngày Tạo</label>
+            <input type="date" class="form-control" id="NgayTao" name="NgayTao" placeholder="NgayTao" />
+        </div>
+        <div class="col-md-6">
+            <label for="TomTat">Tóm Tắt</label>
+            <input type="text" class="form-control" id="TomTat" name="TomTat" placeholder="Tom Tat" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="LoGo1">LoGo1</label>
+            <input type="file" class="form-control" id="LoGo1" name="LoGo1" placeholder="LoGo1" />
+        </div>
+        <div class="col-md-6">
+            <label for="LoGo2">LoGo2</label>
+            <input type="file" class="form-control" id="LoGo2" name="LoGo2" placeholder="LoGo2" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="MaGiaDau">Giải Đấu</label>
+            <select class="form-control" id="MaGiaiDau" name="MaGiaiDau">
+                <option value="">Chọn Giải Đấu</option>
+                @foreach(var gd in ViewBag.giaidau)
+                {
+                    <option value="@gd.MaGiaiDau">@gd.TenGiaiDau</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-6">
+            <input type="hidden" class="form-control" id="MaLoaiTin" name="MaLoaiTin" value="2" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-3 form-check">
+            <input type="checkbox" class="form-check-input" id="Active" name="Ative" value="true" />
+            <label class="form-check-label" for="Active">Active</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a href="/Admin/LichDauAdmin/LichDauAll" class="btn btn-danger">Cancel</a>
+</form>
+
+

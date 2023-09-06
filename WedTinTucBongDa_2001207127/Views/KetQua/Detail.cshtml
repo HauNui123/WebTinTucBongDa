@@ -1,0 +1,46 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div>
+    <table class="table">
+        <td><a style="font-size:20px;color:blue">@Model.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+        <td><a><img src="~/Hinh/LoGoDoiBong/@Model.LoGo1" style="width:auto; height:50px;" /></a></td>
+        <td style="text-align:center;"><a style="font-size:25px;padding-right:0px;"> @Model.TomTat </a></td>
+        <td><a><img src="~/Hinh/LoGoDoiBong/@Model.LoGo2" style="width:auto; height:50px;" /></a></td>
+    </table>
+    <a>@Model.NoiDung</a>
+</div>
+@if (Model.MaGiaiDau == 1)
+{
+    <a href="/KetQua/KetQuaAnh" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaGiaiDau == 2)
+{
+    <a href="/KetQua/KetQuaY" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaGiaiDau == 3)
+{
+    <a href="/KetQua/KetQuaPhap" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaGiaiDau == 4)
+{
+    <a href="/KetQua/KetQuaDuc" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaGiaiDau == 5)
+{
+    <a href="/KetQua/KetQuaTBN" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaGiaiDau == 6)
+{
+    <a href="/KetQua/KetQuaC1" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaGiaiDau == 7)
+{
+    <a href="/KetQua/KetQuaC2" class="btn btn-danger">Trở lại</a>
+}
+
+

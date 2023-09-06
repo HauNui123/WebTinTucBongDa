@@ -1,0 +1,75 @@
+﻿@model WedTinTucBongDa_2001207127.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<style>
+
+
+    button {
+        background-color: #af1111;
+        width: 100%;
+        color: white;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+    }
+
+
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid;
+        box-sizing: border-box;
+    }
+
+    button:hover {
+        opacity: 0.7;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
+
+
+    .container {
+        padding: 25px;
+    }
+</style>
+
+<br />
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="card">
+
+            <div class="card-body">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(m=>m.Email)
+                        @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Mật Khẩu" })
+                    </div>
+                    <div class="form-group">
+
+                        <button type="submit" name="submit" value="Login">ĐĂNG NHẬP</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

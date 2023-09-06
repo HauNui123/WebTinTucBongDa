@@ -1,0 +1,54 @@
+﻿@model List<WedTinTucBongDa_2001207127.Models.User>
+
+@{
+    ViewBag.Title = "QL_User";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+@{
+    string iconclass = "";
+    if (ViewBag.IconClass == "fa-sort-desc")
+    {
+        iconclass = "fa-sort-asc";
+    }
+    else
+    {
+        iconclass = "fa-sort-desc";
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div>
+                <h3><a style="color:red; text-decoration:none" href="/Admin/QuanLyNguoiDung/Ql_User?SortColumn=NgayTao&IconClass=@iconclass&page=1">Danh Sách Người Dùng<i class="fa @ViewBag.IconClass"> </i></a></h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th style="text-align:center;">Email</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><a style="font-size:20px;color:blue">@item.FirstName</a></td>
+                        <td><a style="font-size:20px;color:blue">@item.LastName</a></td>
+                        <td><a style="font-size:20px;color:blue">@item.Email</a></td>
+                        <td>
+                            <a style="font-size:18px;" href="/Admin/QuanLyNguoiDung/Edit/@item.Id">Edit</a> |
+                            <a style="font-size:18px;" href="/Admin/QuanLyNguoiDung/Delete/@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+            
+        </div>
+        <div class="col-4" style="padding:0;">
+
+        </div>
+    </div>
+</div>
+

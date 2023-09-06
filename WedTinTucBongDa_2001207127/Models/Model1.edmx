@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseTinTucBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GiaiDau">
+          <Key>
+            <PropertyRef Name="MaGiaiDau" />
+          </Key>
+          <Property Name="MaGiaiDau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenGiaiDau" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoaiTin">
+          <Key>
+            <PropertyRef Name="MaLoaiTin" />
+          </Key>
+          <Property Name="MaLoaiTin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiTin" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tin">
+          <Key>
+            <PropertyRef Name="MaTin" />
+          </Key>
+          <Property Name="MaTin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TieuDe" Type="nvarchar" MaxLength="300" />
+          <Property Name="TomTat" Type="nvarchar" MaxLength="400" />
+          <Property Name="NoiDung" Type="nvarchar(max)" />
+          <Property Name="HinhAnh" Type="nchar" MaxLength="100" />
+          <Property Name="NgayTao" Type="date" />
+          <Property Name="MaLoaiTin" Type="int" />
+          <Property Name="MaGiaiDau" Type="int" />
+          <Property Name="LoGo1" Type="nchar" MaxLength="100" />
+          <Property Name="LoGo2" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Tin_GiaiDau">
+          <End Role="GiaiDau" Type="Self.GiaiDau" Multiplicity="0..1" />
+          <End Role="Tin" Type="Self.Tin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaiDau">
+              <PropertyRef Name="MaGiaiDau" />
+            </Principal>
+            <Dependent Role="Tin">
+              <PropertyRef Name="MaGiaiDau" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tin_MaLoai">
+          <End Role="LoaiTin" Type="Self.LoaiTin" Multiplicity="0..1" />
+          <End Role="Tin" Type="Self.Tin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiTin">
+              <PropertyRef Name="MaLoaiTin" />
+            </Principal>
+            <Dependent Role="Tin">
+              <PropertyRef Name="MaLoaiTin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseTinTucBDModelStoreContainer">
+          <EntitySet Name="GiaiDau" EntityType="Self.GiaiDau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiTin" EntityType="Self.LoaiTin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tin" EntityType="Self.Tin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tin_GiaiDau" Association="Self.FK_Tin_GiaiDau">
+            <End Role="GiaiDau" EntitySet="GiaiDau" />
+            <End Role="Tin" EntitySet="Tin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tin_MaLoai" Association="Self.FK_Tin_MaLoai">
+            <End Role="LoaiTin" EntitySet="LoaiTin" />
+            <End Role="Tin" EntitySet="Tin" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseTinTucBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GiaiDau">
+          <Key>
+            <PropertyRef Name="MaGiaiDau" />
+          </Key>
+          <Property Name="MaGiaiDau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGiaiDau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tins" Relationship="Self.FK_Tin_GiaiDau" FromRole="GiaiDau" ToRole="Tin" />
+        </EntityType>
+        <EntityType Name="LoaiTin">
+          <Key>
+            <PropertyRef Name="MaLoaiTin" />
+          </Key>
+          <Property Name="MaLoaiTin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiTin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tins" Relationship="Self.FK_Tin_MaLoai" FromRole="LoaiTin" ToRole="Tin" />
+        </EntityType>
+        <EntityType Name="Tin">
+          <Key>
+            <PropertyRef Name="MaTin" />
+          </Key>
+          <Property Name="MaTin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TieuDe" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TomTat" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="NgayTao" Type="DateTime" Precision="0" />
+          <Property Name="MaLoaiTin" Type="Int32" />
+          <Property Name="MaGiaiDau" Type="Int32" />
+          <Property Name="LoGo1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="LoGo2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="GiaiDau" Relationship="Self.FK_Tin_GiaiDau" FromRole="Tin" ToRole="GiaiDau" />
+          <NavigationProperty Name="LoaiTin" Relationship="Self.FK_Tin_MaLoai" FromRole="Tin" ToRole="LoaiTin" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Tin_GiaiDau">
+          <End Role="GiaiDau" Type="Self.GiaiDau" Multiplicity="0..1" />
+          <End Role="Tin" Type="Self.Tin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaiDau">
+              <PropertyRef Name="MaGiaiDau" />
+            </Principal>
+            <Dependent Role="Tin">
+              <PropertyRef Name="MaGiaiDau" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tin_MaLoai">
+          <End Role="LoaiTin" Type="Self.LoaiTin" Multiplicity="0..1" />
+          <End Role="Tin" Type="Self.Tin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiTin">
+              <PropertyRef Name="MaLoaiTin" />
+            </Principal>
+            <Dependent Role="Tin">
+              <PropertyRef Name="MaLoaiTin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseTinTucBDEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GiaiDaus" EntityType="Self.GiaiDau" />
+          <EntitySet Name="LoaiTins" EntityType="Self.LoaiTin" />
+          <EntitySet Name="Tins" EntityType="Self.Tin" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Tin_GiaiDau" Association="Self.FK_Tin_GiaiDau">
+            <End Role="GiaiDau" EntitySet="GiaiDaus" />
+            <End Role="Tin" EntitySet="Tins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tin_MaLoai" Association="Self.FK_Tin_MaLoai">
+            <End Role="LoaiTin" EntitySet="LoaiTins" />
+            <End Role="Tin" EntitySet="Tins" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseTinTucBDModelStoreContainer" CdmEntityContainer="DatabaseTinTucBDEntities1">
+          <EntitySetMapping Name="GiaiDaus">
+            <EntityTypeMapping TypeName="DatabaseTinTucBDModel.GiaiDau">
+              <MappingFragment StoreEntitySet="GiaiDau">
+                <ScalarProperty Name="MaGiaiDau" ColumnName="MaGiaiDau" />
+                <ScalarProperty Name="TenGiaiDau" ColumnName="TenGiaiDau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiTins">
+            <EntityTypeMapping TypeName="DatabaseTinTucBDModel.LoaiTin">
+              <MappingFragment StoreEntitySet="LoaiTin">
+                <ScalarProperty Name="MaLoaiTin" ColumnName="MaLoaiTin" />
+                <ScalarProperty Name="TenLoaiTin" ColumnName="TenLoaiTin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tins">
+            <EntityTypeMapping TypeName="DatabaseTinTucBDModel.Tin">
+              <MappingFragment StoreEntitySet="Tin">
+                <ScalarProperty Name="MaTin" ColumnName="MaTin" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="TomTat" ColumnName="TomTat" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="MaLoaiTin" ColumnName="MaLoaiTin" />
+                <ScalarProperty Name="MaGiaiDau" ColumnName="MaGiaiDau" />
+                <ScalarProperty Name="LoGo1" ColumnName="LoGo1" />
+                <ScalarProperty Name="LoGo2" ColumnName="LoGo2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DatabaseTinTucBDModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

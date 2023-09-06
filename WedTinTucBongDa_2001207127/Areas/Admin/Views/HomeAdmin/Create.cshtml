@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Thêm Tin Mới</h2>
+<form action="/Admin/HomeAdmin/Create" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="TieuDe">Tiêu Đề</label>
+            <input type="text" class="form-control" id="TieuDe" name="TieuDe" placeholder="Tieu De" />
+        </div>
+        <div class="col-md-6">
+            <label for="TomTat">Tóm Tắt</label>
+            <input type="text" class="form-control" id="TomTat" name="TomTat" placeholder="Tom Tat" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="NoiDung">Nội Dung</label>
+            <input type="text" class="form-control" id="NoiDung" name="NoiDung" placeholder="Noi Dung" />
+        </div>
+        <div class="col-md-6">
+            <label for="NgayTao">Ngày Tạo</label>
+            <input type="date" class="form-control" id="NgayTao" name="NgayTao" placeholder="NgayTao" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="HinhAnh">Hình Ảnh</label>
+            <input type="file" class="form-control" id="HinhAnh" name="HinhAnh" placeholder="HinhAnh" />
+        </div>
+        <div class="col-md-6">
+            <input type="hidden" class="form-control" id="MaLoaiTin" name="MaLoaiTin" value="1" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-3 form-check">
+            <input type="checkbox" class="form-check-input" id="Active" name="Ative" value="true" />
+            <label class="form-check-label" for="Active">Active</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a href="/Admin/HomeAdmin/ChuyenNhuong" class="btn btn-danger">Cancel</a>
+</form>
+

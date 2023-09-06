@@ -1,0 +1,56 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chỉnh Sửa</h2>
+<form action="/Admin/LichDauAdmin/Edit/@Model.MaTin" method="post">
+    <input type="hidden" name="MaTin" value="@Model.MaTin" />
+    <div class="row">
+        <div class="col-md-6">
+            <label for="NgayTao">Ngày Tạo</label>
+            <input type="date" class="form-control" id="NgayTao" name="NgayTao" placeholder="NgayTao" value="@Model.NgayTao.Value.ToString("yyyy-MM-dd")" />
+        </div>
+        <div class="col-md-6">
+            <label for="TomTat">Tóm Tắt</label>
+            <input type="text" class="form-control" id="TomTat" name="TomTat" placeholder="Tom Tat" value="@Model.TomTat" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="LoGo1">LoGo1</label>
+            <input type="file" class="form-control" id="LoGo1" name="LoGo1" placeholder="LoGo1" value="@Model.LoGo1" />
+        </div>
+        <div class="col-md-6">
+            <label for="LoGo2">LoGo2</label>
+            <input type="file" class="form-control" id="LoGo2" name="LoGo2" placeholder="LoGo2" value="@Model.LoGo2" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="MaGiaDau">Giải Đấu</label>
+            <select class="form-control" id="MaGiaiDau" name="MaGiaiDau">
+                @foreach (var gd in ViewBag.giaidau)
+                {
+                    if (gd.MaGiaiDau == Model.MaGiaiDau)
+                    {
+                        <option value="@gd.MaGiaiDau" selected>@gd.TenGiaiDau</option>
+                    }
+                    else
+                    {
+                        <option value="@gd.MaGiaiDau">@gd.TenGiaiDau</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-md-6">
+            <input type="hidden" class="form-control" id="MaLoaiTin" name="MaLoaiTin" placeholder="MaLoaiTin" value="@Model.MaLoaiTin" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">SAVE</button>
+    <a href="/Admin/LichDauAdmin/LichDauAll" class="btn btn-danger">Cancel</a>
+</form>
+
+

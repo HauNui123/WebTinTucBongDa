@@ -1,0 +1,599 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADF1131A-9A73-442E-9352-F7504C395BE1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WedTinTucBongDa_2001207127</RootNamespace>
+    <AssemblyName>WedTinTucBongDa_2001207127</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\DatabaseTinTucBD.mdf" />
+    <Content Include="App_Data\DatabaseTinTucBD_log.ldf">
+      <DependentUpon>DatabaseTinTucBD.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Hinh\Barca.jpg" />
+    <Content Include="Hinh\C1\ACMiLan.png" />
+    <Content Include="Hinh\C1\BayernMuchen.png" />
+    <Content Include="Hinh\C1\inter_milan.png" />
+    <Content Include="Hinh\C1\juventus.png" />
+    <Content Include="Hinh\C1\Liverpool.png" />
+    <Content Include="Hinh\C1\manchester-city.jpg" />
+    <Content Include="Hinh\C1\Napoli.png" />
+    <Content Include="Hinh\C1\psg.png" />
+    <Content Include="Hinh\C1\RBLeipzig.jpg" />
+    <Content Include="Hinh\C1\Sevilla.jpg" />
+    <Content Include="Hinh\C2\Arsenal.png" />
+    <Content Include="Hinh\C2\as-monaco.png" />
+    <Content Include="Hinh\C2\Betis.png" />
+    <Content Include="Hinh\C2\Feyenoord.jpg" />
+    <Content Include="Hinh\C2\HJKHelsinki.png" />
+    <Content Include="Hinh\C2\juventus.png" />
+    <Content Include="Hinh\C2\lazio.png" />
+    <Content Include="Hinh\C2\Leverkusen.png" />
+    <Content Include="Hinh\C2\Ludogorets.png" />
+    <Content Include="Hinh\C2\ManUnited.png" />
+    <Content Include="Hinh\C2\nantes.png" />
+    <Content Include="Hinh\C2\PSV.png" />
+    <Content Include="Hinh\C2\RBLeipzig.jpg" />
+    <Content Include="Hinh\C2\roma.png" />
+    <Content Include="Hinh\C2\Sevilla.jpg" />
+    <Content Include="Hinh\C2\Sociedad.png" />
+    <Content Include="Hinh\C2\zuerich.png" />
+    <Content Include="Hinh\ChuyenNhuong\abraham.png" />
+    <Content Include="Hinh\ChuyenNhuong\BayernMuchen.png" />
+    <Content Include="Hinh\ChuyenNhuong\Caicedo.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\chelsechieumosaotrenkunku.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\depay.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\doibongdamphanvsCR7.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\garnacho.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\Lavia.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\maddison.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\ManUtdtranhsaovsArs.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\moukoko.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\mourinhocannhactaingoronaldo.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\Osimhen.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\PSGquantam2cauthu.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\ronaldo.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\ronaldocoratitluachonneuroimu.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\solbakken.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\xacnhangiahanR4.jpg" />
+    <Content Include="Hinh\ChuyenNhuong\YoussoufaMoukoko.jpg" />
+    <Content Include="Hinh\kaka.jpg" />
+    <Content Include="Hinh\liverpool.jpg" />
+    <Content Include="Hinh\LoGo.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Arsenal.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Aston-Villa_logo.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Bournemouth.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\brentford.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Chelsea.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\CrystalPalace.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Fulham.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Leeds.jpg" />
+    <Content Include="Hinh\LogoDoiBongAnh\leicester.jpg" />
+    <Content Include="Hinh\LogoDoiBongAnh\Liverpool.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\logo-brighton-hove-albion.jpg" />
+    <Content Include="Hinh\LogoDoiBongAnh\manchester-city.jpg" />
+    <Content Include="Hinh\LogoDoiBongAnh\ManUnited.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Newcastle.jpg" />
+    <Content Include="Hinh\LogoDoiBongAnh\NottmForest.jpg" />
+    <Content Include="Hinh\LogoDoiBongAnh\Southampton.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\Totenham.png" />
+    <Content Include="Hinh\LogoDoiBongAnh\West-Ham.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Augsburg.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\BayernMuchen.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Borussia-Dortmund.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Cologne.jpg" />
+    <Content Include="Hinh\LoGoDoiBongDuc\E.Frankfurt.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Freiburg.jpg" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Hoffenheim.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Leverkusen.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\M.Gladbach.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Mainz.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\RBLeipzig.jpg" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Schalke04.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Stuttgart.jpg" />
+    <Content Include="Hinh\LoGoDoiBongDuc\W.Bremen.png" />
+    <Content Include="Hinh\LoGoDoiBongDuc\Wolfsburg.jpg" />
+    <Content Include="Hinh\LoGoDoiBongPhap\AC_Ajaccio.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\angers.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\as-monaco.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\auxerre.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\Clermont.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\lens.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\lille.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\lorient.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\lyon.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\marseille.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\montpellier.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\nice.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\psg.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\reims.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\Rennais.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\strasbourg.png" />
+    <Content Include="Hinh\LoGoDoiBongPhap\toulouse.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\AleticoMadrid.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\Almeria.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Athletic Bilbao.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Barcelona.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\Betis.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\cadiz-fc.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\CeltaVigo.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\Elche.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Getafe.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Girona.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Mallorca.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\Osasuna.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\rcd-espanyol-hd-logo.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\RealMadrid.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\Sevilla.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Sociedad.png" />
+    <Content Include="Hinh\LogoDoiBongTBN\Valencia.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Valladolid.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Vallecano.jpg" />
+    <Content Include="Hinh\LogoDoiBongTBN\Villarreal.jpg" />
+    <Content Include="Hinh\LogoDoiBongY\ACMiLan.png" />
+    <Content Include="Hinh\LogoDoiBongY\atalanta.png" />
+    <Content Include="Hinh\LogoDoiBongY\bologna.png" />
+    <Content Include="Hinh\LogoDoiBongY\empoli.png" />
+    <Content Include="Hinh\LogoDoiBongY\fiorentina.png" />
+    <Content Include="Hinh\LogoDoiBongY\inter_milan.png" />
+    <Content Include="Hinh\LogoDoiBongY\juventus.png" />
+    <Content Include="Hinh\LogoDoiBongY\lazio.png" />
+    <Content Include="Hinh\LogoDoiBongY\monza.png" />
+    <Content Include="Hinh\LogoDoiBongY\Napoli.png" />
+    <Content Include="Hinh\LogoDoiBongY\roma.png" />
+    <Content Include="Hinh\LogoDoiBongY\salernitana.png" />
+    <Content Include="Hinh\LogoDoiBongY\sassuolo.png" />
+    <Content Include="Hinh\LogoDoiBongY\spezia.png" />
+    <Content Include="Hinh\LogoDoiBongY\torino.png" />
+    <Content Include="Hinh\LogoDoiBongY\udinese.png" />
+    <Content Include="Hinh\LoGoDoiBong\ACMiLan.png" />
+    <Content Include="Hinh\LoGoDoiBong\AC_Ajaccio.png" />
+    <Content Include="Hinh\LoGoDoiBong\AleticoMadrid.png" />
+    <Content Include="Hinh\LoGoDoiBong\Almeria.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\angers.png" />
+    <Content Include="Hinh\LoGoDoiBong\Arsenal.png" />
+    <Content Include="Hinh\LoGoDoiBong\as-monaco.png" />
+    <Content Include="Hinh\LoGoDoiBong\Aston-Villa_logo.png" />
+    <Content Include="Hinh\LoGoDoiBong\atalanta.png" />
+    <Content Include="Hinh\LoGoDoiBong\Athletic Bilbao.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Augsburg.png" />
+    <Content Include="Hinh\LoGoDoiBong\auxerre.png" />
+    <Content Include="Hinh\LoGoDoiBong\Barcelona.png" />
+    <Content Include="Hinh\LoGoDoiBong\BayernMuchen.png" />
+    <Content Include="Hinh\LoGoDoiBong\Betis.png" />
+    <Content Include="Hinh\LoGoDoiBong\bologna.png" />
+    <Content Include="Hinh\LoGoDoiBong\Borussia-Dortmund.png" />
+    <Content Include="Hinh\LoGoDoiBong\Bournemouth.png" />
+    <Content Include="Hinh\LoGoDoiBong\brentford.png" />
+    <Content Include="Hinh\LoGoDoiBong\cadiz-fc.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\CeltaVigo.png" />
+    <Content Include="Hinh\LoGoDoiBong\Chelsea.png" />
+    <Content Include="Hinh\LoGoDoiBong\Clermont.png" />
+    <Content Include="Hinh\LoGoDoiBong\Cologne.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\CrystalPalace.png" />
+    <Content Include="Hinh\LoGoDoiBong\E.Frankfurt.png" />
+    <Content Include="Hinh\LoGoDoiBong\Elche.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\empoli.png" />
+    <Content Include="Hinh\LoGoDoiBong\Feyenoord.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\fiorentina.png" />
+    <Content Include="Hinh\LoGoDoiBong\Freiburg.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Fulham.png" />
+    <Content Include="Hinh\LoGoDoiBong\Getafe.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Girona.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\HJKHelsinki.png" />
+    <Content Include="Hinh\LoGoDoiBong\Hoffenheim.png" />
+    <Content Include="Hinh\LoGoDoiBong\inter_milan.png" />
+    <Content Include="Hinh\LoGoDoiBong\juventus.png" />
+    <Content Include="Hinh\LoGoDoiBong\lazio.png" />
+    <Content Include="Hinh\LoGoDoiBong\Leeds.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\leicester.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\lens.png" />
+    <Content Include="Hinh\LoGoDoiBong\Leverkusen.png" />
+    <Content Include="Hinh\LoGoDoiBong\lille.png" />
+    <Content Include="Hinh\LoGoDoiBong\Liverpool.png" />
+    <Content Include="Hinh\LoGoDoiBong\logo-brighton-hove-albion.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\lorient.png" />
+    <Content Include="Hinh\LoGoDoiBong\Ludogorets.png" />
+    <Content Include="Hinh\LoGoDoiBong\lyon.png" />
+    <Content Include="Hinh\LoGoDoiBong\M.Gladbach.png" />
+    <Content Include="Hinh\LoGoDoiBong\Mainz.png" />
+    <Content Include="Hinh\LoGoDoiBong\Mallorca.png" />
+    <Content Include="Hinh\LoGoDoiBong\manchester-city.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\ManUnited.png" />
+    <Content Include="Hinh\LoGoDoiBong\marseille.png" />
+    <Content Include="Hinh\LoGoDoiBong\montpellier.png" />
+    <Content Include="Hinh\LoGoDoiBong\monza.png" />
+    <Content Include="Hinh\LoGoDoiBong\nantes.png" />
+    <Content Include="Hinh\LoGoDoiBong\Napoli.png" />
+    <Content Include="Hinh\LoGoDoiBong\Newcastle.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\nice.png" />
+    <Content Include="Hinh\LoGoDoiBong\NottmForest.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Osasuna.png" />
+    <Content Include="Hinh\LoGoDoiBong\psg.png" />
+    <Content Include="Hinh\LoGoDoiBong\PSV.png" />
+    <Content Include="Hinh\LoGoDoiBong\RBLeipzig.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\rcd-espanyol-hd-logo.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\RealMadrid.png" />
+    <Content Include="Hinh\LoGoDoiBong\reims.png" />
+    <Content Include="Hinh\LoGoDoiBong\Rennais.png" />
+    <Content Include="Hinh\LoGoDoiBong\roma.png" />
+    <Content Include="Hinh\LoGoDoiBong\salernitana.png" />
+    <Content Include="Hinh\LoGoDoiBong\sassuolo.png" />
+    <Content Include="Hinh\LoGoDoiBong\Schalke04.png" />
+    <Content Include="Hinh\LoGoDoiBong\Sevilla.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Sociedad.png" />
+    <Content Include="Hinh\LoGoDoiBong\Southampton.png" />
+    <Content Include="Hinh\LoGoDoiBong\spezia.png" />
+    <Content Include="Hinh\LoGoDoiBong\strasbourg.png" />
+    <Content Include="Hinh\LoGoDoiBong\Stuttgart.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\torino.png" />
+    <Content Include="Hinh\LoGoDoiBong\Totenham.png" />
+    <Content Include="Hinh\LoGoDoiBong\toulouse.png" />
+    <Content Include="Hinh\LoGoDoiBong\udinese - Copy.png" />
+    <Content Include="Hinh\LoGoDoiBong\udinese.png" />
+    <Content Include="Hinh\LoGoDoiBong\Valencia.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Valladolid.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Vallecano.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\Villarreal.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\W.Bremen.png" />
+    <Content Include="Hinh\LoGoDoiBong\West-Ham.png" />
+    <Content Include="Hinh\LoGoDoiBong\Wolfsburg.jpg" />
+    <Content Include="Hinh\LoGoDoiBong\zuerich.png" />
+    <Content Include="Hinh\Real.jpg" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\HomeAdmin\ChuyenNhuong.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauY.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauAnh.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauPhap.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauDuc.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauTBN.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauC1.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauC2.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\LichDauAll.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LichDauAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaY.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaAnh.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaPhap.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaDuc.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaTBN.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaC1.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaC2.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\KetQuaAll.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KetQuaAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNguoiDung\QL_User.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNguoiDung\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNguoiDung\Delete.cshtml" />
+    <None Include="Scripts\jquery-3.6.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.1.js" />
+    <Content Include="Scripts\jquery-3.6.1.min.js" />
+    <Content Include="Scripts\jquery-3.6.1.slim.js" />
+    <Content Include="Scripts\jquery-3.6.1.slim.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KetQuaAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LichDauAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyNguoiDungController.cs" />
+    <Compile Include="Class\DanhSachCacTin.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KetQuaController.cs" />
+    <Compile Include="Controllers\LichDauController.cs" />
+    <Compile Include="Controllers\TinMoiController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GiaiDau.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiTin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.6.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.1.min.map" />
+    <Content Include="Views\Home\TrangChu.cshtml" />
+    <Content Include="Views\TinMoi\TinTuc.cshtml" />
+    <Content Include="Views\TinMoi\LichDau.cshtml" />
+    <Content Include="Views\TinMoi\KetQua.cshtml" />
+    <Content Include="Views\Home\ChuyenNhuong.cshtml" />
+    <Content Include="Views\LichDau\LichDauY.cshtml" />
+    <Content Include="Views\LichDau\LichDauAnh.cshtml" />
+    <Content Include="Views\LichDau\LichDauPhap.cshtml" />
+    <Content Include="Views\LichDau\LichDauDuc.cshtml" />
+    <Content Include="Views\LichDau\LichDauTBN.cshtml" />
+    <Content Include="Views\LichDau\LichDauC1.cshtml" />
+    <Content Include="Views\LichDau\LichDauC2.cshtml" />
+    <Content Include="Views\KetQua\KetQuaY.cshtml" />
+    <Content Include="Views\KetQua\KetQuaAnh.cshtml" />
+    <Content Include="Views\KetQua\KetQuaPhap.cshtml" />
+    <Content Include="Views\KetQua\KetQuaDuc.cshtml" />
+    <Content Include="Views\KetQua\KetQuaTBN.cshtml" />
+    <Content Include="Views\KetQua\KetQuaC1.cshtml" />
+    <Content Include="Views\KetQua\KetQuaC2.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\TinMoi\Detail.cshtml" />
+    <Content Include="Views\KetQua\Detail.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50154</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50154/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

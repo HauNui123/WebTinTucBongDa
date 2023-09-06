@@ -1,0 +1,74 @@
+﻿@model List<WedTinTucBongDa_2001207127.Models.Tin>
+
+@{
+    ViewBag.Title = "KetQuaPhap";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+@{
+    string iconclass = "";
+    if (ViewBag.IconClass == "fa-sort-desc")
+    {
+        iconclass = "fa-sort-asc";
+    }
+    else
+    {
+        iconclass = "fa-sort-desc";
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div>
+                <h3><a style="color:red; text-decoration:none" href="/Admin/KetQuaAdmin/KetQuaPhap?SortColumn=NgayTao&IconClass=@iconclass&page=1">Kết Quả Một Số Trận Đấu Ở Pháp<i class="fa @ViewBag.IconClass"> </i></a></h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Ngày Diễn Ra</th>
+                    <th></th>
+                    <th style="text-align:center;">Kết Quả</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><a style="font-size:20px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                        <td style="text-align:center;"><a style="font-size:25px;padding-right:0px;"> @ </a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                        <td><a href="/Admin/KetQuaAdmin/Detail/@item.MaTin">Chi Tiết</a></td>
+                        <td>
+                            <a style="font-size:18px;" href="/Admin/KetQuaAdmin/Edit/@item.MaTin">Edit</a> |
+                            <a style="font-size:18px;" href="/Admin/KetQuaAdmin/Delete/@item.MaTin">Delete</a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <ul class="pagination justify-content-center">
+                        @for (int i = 0; i < ViewBag.NoOfpage; i++)
+                        {
+                            if (i + 1 == ViewBag.page)
+                            {
+                                <li class="page-item active">
+                                    <a class="page-link" href="/Admin/KetQuaAdmin/KetQuaPhap?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">@(i + 1)</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="/Admin/KetQuaAdmin/KetQuaPhap?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">@(i + 1)</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </tr>
+            </table>
+        </div>
+        <div class="col-4" style="padding:0;">
+
+        </div>
+    </div>
+</div>
+

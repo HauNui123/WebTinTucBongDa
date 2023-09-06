@@ -1,0 +1,50 @@
+﻿@model List<WedTinTucBongDa_2001207127.Models.Tin>
+
+@{
+    ViewBag.Title = "LichDau";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@{
+    string iconclass = "";
+    if (ViewBag.IconClass == "fa-sort-desc")
+    {
+        iconclass = "fa-sort-asc";
+    }
+    else
+    {
+        iconclass = "fa-sort-desc";
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div>
+                <h3><a style="color:red; text-decoration:none" href="/TinMoi/LichDau?SortColumn=NgayTao&IconClass=@iconclass">Lịch Một Số Trận Đấu<i class="fa @ViewBag.IconClass"> </i></a></h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Ngày Diễn Ra</th>
+                    <th></th>
+                    <th style="text-align:center;">CLB</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><a style="font-size:20px;">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                        <td style="text-align:center;"><a style="font-size:25px; color:red;"> @item.TomTat </a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-4" style="padding:0; background-color:silver;">
+
+        </div>
+    </div>
+</div>
+
+

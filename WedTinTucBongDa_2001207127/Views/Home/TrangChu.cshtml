@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    var DS_tinChuyenNhuong = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_ChuyenNhuong;
+    var DS_tinLichDau = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_LichDau;
+    var DS_tinKetQua = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_KetQua;
+    var DS_tinLichC1 = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_LichC1;
+    var DS_tinLichC2 = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_LichC2;
+    var DS_tinKQC1 = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_KQC1;
+    var DS_tinKQC2 = (List<WedTinTucBongDa_2001207127.Models.Tin>)ViewBag.DS_KQC2;
+}
+@{ 
+    string iconclass = "";
+    if(ViewBag.IconClass == "fa-sort-desc")
+    {
+        iconclass = "fa-sort-asc";
+    }
+    else
+    {
+        iconclass = "fa-sort-desc";
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div style="margin:0px 25px;">
+                <div>
+                    <h3 style="color:red;">Tin Chuyển Nhượng</h3>
+                    <button class="btn btn-danger" ><a style="text-decoration:none;color:white;" href="/Home/TrangChu?SortColumn=NgayTao&IconClass=@iconclass">Sắp Xếp<i class="fa @ViewBag.IconClass"> </i></a></button>
+                </div>
+                @foreach (var item in DS_tinChuyenNhuong)
+                {
+                    <div class="row">
+                        <div class="col-3">
+                            <a><img src="~/Hinh/ChuyenNhuong/@item.HinhAnh" style="width:100%; height:150px;" /></a>
+                        </div>
+                        <div class="col-9">
+                            <a style="font-size:20px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a>
+                            <h3><a href="/Home/Detail/@item.MaTin">@item.TieuDe</a></h3>
+                            <a style="font-size:18px;">@item.TomTat</a>
+                        </div>
+                    </div>
+                    <br />
+                }
+                <div>
+                    <h3 style="color:red;">Kết Quả Một Số Trận Đấu<h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>Ngày Diễn Ra</th>
+                        <th></th>
+                        <th style="text-align:center;">Kết Quả</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                    @foreach (var item in DS_tinKetQua)
+                    {
+                        <tr>
+                            <td><a style="font-size:20px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                            <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                            <td style="text-align:center;"><a style="font-size:25px;padding-right:0px;"> @item.TomTat </a></td>
+                            <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                            <td><a href="/Home/Detail/@item.MaTin">Chi Tiết</a></td>
+                        </tr>
+                    }
+                </table>
+                <div>
+                    <h3 style="color:red;">Lich Một Số Trận Đấu<h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>Ngày Diễn Ra</th>
+                        <th></th>
+                        <th style="text-align:center;">CLB</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                    @foreach (var item in DS_tinLichDau)
+                    {
+                        <tr>
+                            <td><a style="font-size:20px;">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                            <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                            <td style="text-align:center;"><a style="font-size:25px; color:red;"> @item.TomTat </a></td>
+                            <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="col-4" style="padding:0; background-color:silver;">
+            @*==========================================C1=========================================================*@
+            <div style="text-align:center; background-color:black; padding:10px;">
+                <h3 style="color:white;">Champions League<h3>
+            </div>
+            <div style="text-align:center; background-color:red; padding:5px;">
+                <h3 style="color:white;">Kết Quả<h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Ngày Đá</th>
+                    <th></th>
+                    <th style="text-align:center;">Kết Quả</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in DS_tinKQC1)
+                {
+                    <tr>
+                        <td><a style="font-size:15px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                        <td style="text-align:center;"><a style="font-size:15px;padding-right:0px;" href="/Home/Detail/@item.MaTin"> @item.TomTat </a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align:center; background-color:red; padding:5px;">
+                <h3 style="color:white;">Lịch Đấu<h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Ngày Đá</th>
+                    <th></th>
+                    <th style="text-align:center;">Câu Lạc Bộ</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in DS_tinLichC1)
+                {
+                    <tr>
+                        <td><a style="font-size:15px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                        <td style="text-align:center;"><a style="font-size:15px;padding-right:0px;"> @item.TomTat </a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                    </tr>
+                }
+            </table>
+            @*==========================================C2=========================================================*@
+            <div style="text-align:center; background-color:black; padding:10px;">
+                <h3 style="color:white;">Europa League<h3>
+            </div>
+            <div style="text-align:center; background-color:red; padding:5px;">
+                <h3 style="color:white;">Kết Quả<h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Ngày Đá</th>
+                    <th></th>
+                    <th style="text-align:center;">Kết Quả</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in DS_tinKQC2)
+                {
+                    <tr>
+                        <td><a style="font-size:15px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                        <td style="text-align:center;"><a style="font-size:15px;padding-right:0px;" href="/Home/Detail/@item.MaTin"> @item.TomTat </a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align:center; background-color:red; padding:5px;">
+                <h3 style="color:white;">Lịch Đấu<h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Ngày Đá</th>
+                    <th></th>
+                    <th style="text-align:center;">Câu Lạc Bộ</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+                @foreach (var item in DS_tinLichC2)
+                {
+                    <tr>
+                        <td><a style="font-size:15px;color:blue">@item.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo1" style="width:auto; height:50px;" /></a></td>
+                        <td style="text-align:center;"><a style="font-size:15px;padding-right:0px;"> @item.TomTat </a></td>
+                        <td><a><img src="~/Hinh/LoGoDoiBong/@item.LoGo2" style="width:auto; height:50px;" /></a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

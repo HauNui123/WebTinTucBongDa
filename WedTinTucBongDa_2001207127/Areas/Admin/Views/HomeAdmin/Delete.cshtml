@@ -1,0 +1,24 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<form action="/Admin/HomeAdmin/Delete/@Model.MaTin" method="post">
+    <input type="hidden" name="MaTin" value="@Model.MaTin" />
+    <div>
+        <div>
+            <a><img src="~/Hinh/ChuyenNhuong/@Model.HinhAnh" style="width:800px; height:100%; margin:50px 200px" /></a>
+        </div>
+        <div>
+            <a style="font-size:20px;color:blue">@Model.NgayTao.Value.ToString("d/M/yyyy")</a>
+            <h3>@Model.TieuDe</h3>
+            <a style="font-size:18px;">@Model.TomTat</a>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">DELETE</button>
+    <a href="/Admin/HomeAdmin/ChuyenNhuong" class="btn btn-dark">Cancel</a>
+</form>
+
+

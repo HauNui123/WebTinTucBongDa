@@ -1,0 +1,30 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<form action="/Admin/KetQuaAdmin/Delete/@Model.MaTin" method="post">
+    <input type="hidden" name="MaTin" value="@Model.MaTin" />
+    <div>
+        <table class="table">
+            <tr>
+                <th>Ngày Diễn Ra</th>
+                <th></th>
+                <th style="text-align:center;">CLB</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><a style="font-size:20px;">@Model.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+                <td><a><img src="~/Hinh/LoGoDoiBong/@Model.LoGo1" style="width:auto; height:50px;" /></a></td>
+                <td style="text-align:center;"><a style="font-size:25px; color:red;"> @Model.TomTat </a></td>
+                <td><a><img src="~/Hinh/LoGoDoiBong/@Model.LoGo2" style="width:auto; height:50px;" /></a></td>
+            </tr>
+        </table>
+    </div>
+    <button type="submit" class="btn btn-danger">DELETE</button>
+    <a href="/Admin/KetQuaAdmin/KetQuaAll" class="btn btn-dark">Cancel</a>
+</form>
+

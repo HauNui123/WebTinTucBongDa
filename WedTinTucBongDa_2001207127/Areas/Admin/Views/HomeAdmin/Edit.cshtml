@@ -1,0 +1,39 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chỉnh Sửa</h2>
+<form action="/Admin/HomeAdmin/Edit/@Model.MaTin" method="post">
+    <input type="hidden" name="MaTin" value="@Model.MaTin" />
+    <div class="row">
+        <div class="col-md-6">
+            <label for="TieuDe">Tiêu Đề</label>
+            <input type="text" class="form-control" id="TieuDe" name="TieuDe" placeholder="Tieu De" value="@Model.TieuDe" />
+        </div>
+        <div class="col-md-6">
+            <label for="TomTat">Tóm Tắt</label>
+            <input type="text" class="form-control" id="TomTat" name="TomTat" placeholder="Tom Tat" value="@Model.TomTat" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="NoiDung">Nội Dung</label>
+            <input type="text" class="form-control" id="NoiDung" name="NoiDung" placeholder="Noi Dung" value="@Model.NoiDung" />
+        </div>
+        <div class="col-md-6">
+            <label for="NgayTao">Ngày Tạo</label>
+            <input type="date" class="form-control" id="NgayTao" name="NgayTao" placeholder="NgayTao" value="@Model.NgayTao.Value.ToString("yyyy-MM-dd")" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input type="hidden" class="form-control" id="MaLoaiTin" name="MaLoaiTin" placeholder="MaLoaiTin" value="@Model.MaLoaiTin" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">SAVE</button>
+    <a href="/Admin/HomeAdmin/ChuyenNhuong" class="btn btn-danger">Cancel</a>
+</form>
+

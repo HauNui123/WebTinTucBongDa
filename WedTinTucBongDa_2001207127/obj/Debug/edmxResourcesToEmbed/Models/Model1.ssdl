@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseTinTucBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GiaiDau">
+    <Key>
+      <PropertyRef Name="MaGiaiDau" />
+    </Key>
+    <Property Name="MaGiaiDau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGiaiDau" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiTin">
+    <Key>
+      <PropertyRef Name="MaLoaiTin" />
+    </Key>
+    <Property Name="MaLoaiTin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiTin" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tin">
+    <Key>
+      <PropertyRef Name="MaTin" />
+    </Key>
+    <Property Name="MaTin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="300" />
+    <Property Name="TomTat" Type="nvarchar" MaxLength="400" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="HinhAnh" Type="nchar" MaxLength="100" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="MaLoaiTin" Type="int" />
+    <Property Name="MaGiaiDau" Type="int" />
+    <Property Name="LoGo1" Type="nchar" MaxLength="100" />
+    <Property Name="LoGo2" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Tin_GiaiDau">
+    <End Role="GiaiDau" Type="Self.GiaiDau" Multiplicity="0..1" />
+    <End Role="Tin" Type="Self.Tin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaiDau">
+        <PropertyRef Name="MaGiaiDau" />
+      </Principal>
+      <Dependent Role="Tin">
+        <PropertyRef Name="MaGiaiDau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tin_MaLoai">
+    <End Role="LoaiTin" Type="Self.LoaiTin" Multiplicity="0..1" />
+    <End Role="Tin" Type="Self.Tin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiTin">
+        <PropertyRef Name="MaLoaiTin" />
+      </Principal>
+      <Dependent Role="Tin">
+        <PropertyRef Name="MaLoaiTin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseTinTucBDModelStoreContainer">
+    <EntitySet Name="GiaiDau" EntityType="Self.GiaiDau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiTin" EntityType="Self.LoaiTin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tin" EntityType="Self.Tin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tin_GiaiDau" Association="Self.FK_Tin_GiaiDau">
+      <End Role="GiaiDau" EntitySet="GiaiDau" />
+      <End Role="Tin" EntitySet="Tin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tin_MaLoai" Association="Self.FK_Tin_MaLoai">
+      <End Role="LoaiTin" EntitySet="LoaiTin" />
+      <End Role="Tin" EntitySet="Tin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

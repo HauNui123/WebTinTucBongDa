@@ -1,0 +1,21 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+    <div>
+        <div>
+            <a><img src="~/Hinh/ChuyenNhuong/@Model.HinhAnh" style="width:800px; height:100%; margin:50px 200px" /></a>
+        </div>
+        <div>
+            <a style="font-size:20px;color:blue">@Model.NgayTao.Value.ToString("d/M/yyyy")</a>
+            <h3>@Model.TieuDe</h3>
+            <a style="font-size:18px;">@Model.TomTat</a>
+            <a style="font-size:18px;">@Model.NoiDung</a>
+        </div>
+    </div>
+    <a href="/Admin/HomeAdmin/ChuyenNhuong" class="btn btn-danger">Trở lại</a>
+
+

@@ -1,0 +1,20 @@
+﻿@model WedTinTucBongDa_2001207127.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<form action="/Admin/QuanLyNguoiDung/Delete/@Model.Id" method="post">
+    <input type="hidden" name="MaTin" value="@Model.Id" />
+    <div>
+        <div>
+            <a style="font-size:20px;color:blue">@Model.FirstName</a>
+            <a style="font-size:20px;color:blue">@Model.LastName</a>
+            <a style="font-size:20px;color:blue">@Model.Email</a>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">DELETE</button>
+    <a href="/Admin/QuanLyNguoiDung/QL_User" class="btn btn-dark">Cancel</a>
+</form>
+

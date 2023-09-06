@@ -1,0 +1,36 @@
+﻿@model WedTinTucBongDa_2001207127.Models.Tin
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@if (Model.MaLoaiTin == 1)
+{
+    <div>
+        <div>
+            <a><img src="~/Hinh/ChuyenNhuong/@Model.HinhAnh" style="width:800px; height:100%; margin:50px 200px" /></a>
+        </div>
+        <div>
+            <a style="font-size:20px;color:blue">@Model.NgayTao.Value.ToString("d/M/yyyy")</a>
+            <h3>@Model.TieuDe</h3>
+            <a style="font-size:18px;">@Model.TomTat</a>
+            <a style="font-size:18px;">@Model.NoiDung</a>
+        </div>
+    </div>
+    <a href="/TinMoi/TinTuc" class="btn btn-danger">Trở lại</a>
+}
+else if (Model.MaLoaiTin == 3)
+{
+    <div>
+        <table class="table">
+            <td><a style="font-size:20px;color:blue">@Model.NgayTao.Value.ToString("d/M/yyyy")</a></td>
+            <td><a><img src="~/Hinh/LoGoDoiBong/@Model.LoGo1" style="width:auto; height:50px;" /></a></td>
+            <td style="text-align:center;"><a style="font-size:25px;padding-right:0px;"> @Model.TomTat </a></td>
+            <td><a><img src="~/Hinh/LoGoDoiBong/@Model.LoGo2" style="width:auto; height:50px;" /></a></td>
+        </table>
+        <a>@Model.NoiDung</a>
+    </div>
+    <a href="/TinMoi/KetQua" class="btn btn-danger">Trở lại</a>
+}
+
